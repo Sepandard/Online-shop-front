@@ -6,6 +6,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormlyModule } from '@ngx-formly/core';
 import { MatButtonModule } from '@angular/material/button';
+import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app.routing';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,6 +16,8 @@ import { MatButtonModule } from '@angular/material/button';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MatButtonModule,
+    RouterModule,
+    AppRoutingModule,
     FormlyModule.forRoot({ extras: { lazyRender: true } }),
   ],
   providers: [],

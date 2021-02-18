@@ -4,13 +4,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 
 const routes: Routes = [
-  //   {
-  //     path: '',
-  //     loadChildren: () =>
-  //       import('../libs/libs/admin-layout/admin-layout.module').then(
-  //         (m) => m.AdminLayoutModule
-  //       ),
-  //   }
+  {
+    path: 'auth',
+    loadChildren: () =>
+      import('../app/Auth/auth.module').then((m) => m.AuthModule),
+  },
 ];
 
 @NgModule({
