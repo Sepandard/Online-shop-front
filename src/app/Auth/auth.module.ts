@@ -10,6 +10,8 @@ import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyMaterialModule } from '@ngx-formly/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [LoginComponent, SignupComponent, AuthComponent],
@@ -19,8 +21,18 @@ import { FormlyMaterialModule } from '@ngx-formly/material';
     RouterModule,
     MatCardModule,
     MatInputModule,
+    MatButtonModule,
+    MatIconModule,
     ReactiveFormsModule,
-    FormlyModule.forRoot(),
+    FormlyModule.forRoot({
+      validationMessages: [
+        { name: 'required', message: 'This field is required' },
+        {
+          name: 'minlength',
+          message: 'your password must be more than 8 char',
+        },
+      ],
+    }),
     FormlyMaterialModule,
   ],
 })
