@@ -5,9 +5,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 const routes: Routes = [
   {
-    path: 'auth',
+    path: 'online-shop',
     loadChildren: () =>
-      import('../app/Auth/auth.module').then((m) => m.AuthModule),
+      import('./layout/layout.module').then((m) => m.LayoutModule),
   },
 ];
 
