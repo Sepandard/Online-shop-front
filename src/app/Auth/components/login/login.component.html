@@ -1,1 +1,23 @@
-<p>login works!</p>
+<div class="wrapper-bg d-flex">
+  <div class="bg-img"></div>
+  <div class="login-card">
+    <mat-card class="m-2">
+      <mat-card-title>Login</mat-card-title>
+      <mat-card-subtitle>Please Enter your Email & Password</mat-card-subtitle>
+
+      <form
+        [formGroup]="redemptionOfYearsForm"
+        (ngSubmit)="onSubmit()"
+        class="mt-4"
+      >
+        <formly-form
+          [model]="redemptionOfYearsFormModel"
+          [fields]="redemptionOfYearsFormConfig"
+          [form]="redemptionOfYearsForm"
+        ></formly-form>
+      </form>
+      <button mat-flat-button class="mt-3 col-12 btn-primary">Login</button>
+      <a class="col-12 mt-4 or-style">Forget Password?</a>
+    </mat-card>
+  </div>
+</div>
