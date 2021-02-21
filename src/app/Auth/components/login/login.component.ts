@@ -30,31 +30,32 @@ export class LoginComponent implements OnInit {
         fieldGroup: [
           {
             className: 'flex-25 padding-10',
-            key: 'EstablishmentAmount',
+            key: 'email',
             type: 'input',
             templateOptions: {
+              pattern: '[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$',
+              type: 'email',
               label: 'Email',
-              Placeholder: 'Example@',
+              Placeholder: 'Ex@Example.com',
               required: true,
+            },
+            validation: {
+              messages: {
+                pattern: (error, field: FormlyFieldConfig) => `Email invalid`,
+              },
             },
           },
           {
-            className: 'flex-25 padding-10',
-            key: 'EstablishmentAmount',
+            className: 'flex-25 padding-20',
+            key: 'password',
             type: 'input',
+
             templateOptions: {
-              label: 'Email',
-              Placeholder: 'Example@',
-              required: true,
-            },
-          },
-          {
-            className: 'flex-25 padding-10',
-            key: 'EstablishmentAmount',
-            type: 'input',
-            templateOptions: {
-              label: 'Email',
-              Placeholder: 'Example@',
+              minLength: 8,
+
+              type: 'password',
+              label: 'Password',
+              Placeholder: 'Password',
               required: true,
             },
           },
