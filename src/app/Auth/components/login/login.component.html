@@ -16,8 +16,22 @@
           [form]="redemptionOfYearsForm"
         ></formly-form>
       </form>
-      <button mat-flat-button class="mt-3 col-12 btn-primary">Login</button>
-      <a class="col-12 mt-4 or-style">Forget Password?</a>
+      <button
+        mat-flat-button
+        class="mt-3 col-12 btn-primary"
+        [disabled]="this.redemptionOfYearsForm.invalid"
+      >
+        Login
+      </button>
+      <a class="col-12 mt-4 a-style-Forget">Forget Password?</a>
+      <div class="a-style-signup m-2">
+        Don’t have an account?
+        <a
+          class="col-12 a-style-signup cursor-pointer"
+          [routerLink]="['../singup']"
+          >Sign up</a
+        >
+      </div>
     </mat-card>
   </div>
 </div>

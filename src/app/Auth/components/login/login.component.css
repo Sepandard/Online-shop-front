@@ -19,7 +19,7 @@
   background-position: center;
   object-fit: cover;
   background-repeat: no-repeat;
-  height: 50%;
+  height: 70%;
   width: 50%;
   transform: rotateY(180deg);
   margin-top: auto;
@@ -44,6 +44,8 @@
   background-color: #007bff;
   border-color: #007bff;
   font-weight: 400;
+  border: 5px;
+  border-radius: 20px;
 }
 /* .btn-facebook {
   padding: 7px;
@@ -67,12 +69,22 @@
   font-weight: 400;
 } */
 
-.or-style {
+.a-style-Forget {
   font-family: "Roboto", sans-serif;
   color: #6c757d;
   text-align: left;
   font-size: 12px;
   margin-top: 3rem;
+  cursor: pointer;
+}
+.a-style-signup {
+  font-family: "Roboto", sans-serif;
+  color: #6c757d;
+  text-align: left;
+  font-size: 12px;
+  padding: 0px 5px;
+}
+.cursor-pointer {
   cursor: pointer;
 }
 /* body {
