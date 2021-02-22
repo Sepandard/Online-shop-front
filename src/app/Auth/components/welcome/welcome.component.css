@@ -1,0 +1,22 @@
+.bg-welcome {
+  height: 100vh;
+  flex: 1;
+  background-image: url("../../../images/undraw_welcome_cats_thqqq.svg");
+  background-size: auto;
+  background-position: center;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  height: 62%;
+  width: 100%;
+
+  margin-right: 10px;
+}
+.font-family {
+  font-family: sans-serif;
+  text-align: center;
+}
+.div1 {
+  background-color: #0072b5;
+
+  clip-path: ellipse(40% 40% at -1% 0%);
+}
