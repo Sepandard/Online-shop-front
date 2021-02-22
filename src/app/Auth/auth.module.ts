@@ -12,12 +12,21 @@ import { FormlyModule } from '@ngx-formly/core';
 import { FormlyMaterialModule } from '@ngx-formly/material';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { WelcomeComponent } from './components/welcome/welcome.component';
+import { MegaMenuComponent } from '../layout/components/layout/mega-menu/mega-menu.component';
 
 @NgModule({
-  declarations: [LoginComponent, SignupComponent, AuthComponent],
+  declarations: [
+    LoginComponent,
+    SignupComponent,
+    AuthComponent,
+    WelcomeComponent,
+    MegaMenuComponent,
+  ],
   imports: [
     CommonModule,
     AuthRoutingModule,
+
     RouterModule,
     MatCardModule,
     MatInputModule,
