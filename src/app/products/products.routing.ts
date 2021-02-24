@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ProductCardComponent } from './components/product-card/product-card.component';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { ProductLayoutComponent } from './components/product-layout/product-layout.component';
 
 const routes: Routes = [
@@ -9,14 +10,18 @@ const routes: Routes = [
     component: ProductLayoutComponent,
     children: [
       {
-        path: 'card',
+        path: 'product-list',
         component: ProductCardComponent,
+      },
+      {
+        path: 'product-detail',
+        component: ProductDetailComponent,
       },
     ],
   },
   {
     path: '**',
-    redirectTo: '/auth',
+    redirectTo: '/product-list',
   },
 ];
 
