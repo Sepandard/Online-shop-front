@@ -6,12 +6,14 @@ import { ProductLayoutComponent } from './components/product-layout/product-layo
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductsRoutingModule } from './products.routing';
 import { MatButtonModule } from '@angular/material/button';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
     ProductCardComponent,
     ProductLayoutComponent,
     ProductListComponent,
+    ProductDetailComponent,
   ],
   imports: [
     CommonModule,
