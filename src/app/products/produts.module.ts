@@ -7,6 +7,7 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { ProductsRoutingModule } from './products.routing';
 import { MatButtonModule } from '@angular/material/button';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import { MenuComponent } from '../layout/components/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
     ProductLayoutComponent,
     ProductListComponent,
     ProductDetailComponent,
+    MenuComponent
   ],
   imports: [
     CommonModule,
