@@ -96,3 +96,6 @@
 ::ng-deep .mat-radio-outer-circle {
   border-color: #007bff !important;
 }
+ ::ng-deep .mat-button-wrapper{
+  color: whitesmoke;
+}

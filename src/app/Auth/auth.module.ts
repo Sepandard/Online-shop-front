@@ -13,7 +13,10 @@ import { FormlyMaterialModule } from '@ngx-formly/material';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { WelcomeComponent } from './components/welcome/welcome.component';
-import { MegaMenuComponent } from '../layout/components/layout/mega-menu/mega-menu.component';
+
+import { AuthService } from './shared/auth.service';
+import { BaseService } from 'shared/base-service.service';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -21,17 +24,18 @@ import { MegaMenuComponent } from '../layout/components/layout/mega-menu/mega-me
     SignupComponent,
     AuthComponent,
     WelcomeComponent,
-    MegaMenuComponent,
+    
   ],
   imports: [
     CommonModule,
     AuthRoutingModule,
-
+    MatSnackBarModule,
     RouterModule,
     MatCardModule,
     MatInputModule,
     MatButtonModule,
     MatIconModule,
+    
     ReactiveFormsModule,
     FormlyModule.forRoot({
       validationMessages: [
@@ -43,6 +47,8 @@ import { MegaMenuComponent } from '../layout/components/layout/mega-menu/mega-me
       ],
     }),
     FormlyMaterialModule,
-  ],
+  ]
+  ,
+  providers : [BaseService,AuthService]
 })
 export class AuthModule {}

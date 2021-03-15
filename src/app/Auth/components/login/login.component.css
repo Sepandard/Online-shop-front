@@ -90,3 +90,10 @@
 /* body {
   background-color: #fafafa;
 }  */
+
+/* ::ng-deep .mat-button-wrapper{
+  color: whitesmoke;
+} */
+.s{
+  font-weight: bolder;
+}
