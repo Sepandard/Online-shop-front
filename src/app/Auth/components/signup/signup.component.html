@@ -14,8 +14,9 @@
           [fields]="redemptionOfYearsFormConfig"
           [form]="redemptionOfYearsForm"
         ></formly-form>
-      </form>
+     
       <button
+        type="submit"
         mat-flat-button
         class="mt-3 col-12 btn-primary"
         [disabled]="this.redemptionOfYearsForm.invalid"
@@ -31,6 +32,7 @@
           >Login</a
         >
       </div>
+    </form>
     </mat-card>
   </div>
   <div class="bg-img"></div>
