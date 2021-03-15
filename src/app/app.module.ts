@@ -8,6 +8,7 @@ import { FormlyModule } from '@ngx-formly/core';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
+import {  HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,9 +19,10 @@ import { AppRoutingModule } from './app.routing';
     MatButtonModule,
     RouterModule,
     AppRoutingModule,
+    HttpClientModule,
     FormlyModule.forRoot({ extras: { lazyRender: true } }),
   ],
-  providers: [],
+  
   bootstrap: [AppComponent],
 })
 export class AppModule {}
