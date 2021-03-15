@@ -2,6 +2,7 @@ import { Placeholder } from '@angular/compiler/src/i18n/i18n_ast';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { FormlyFieldConfig } from '@ngx-formly/core';
+import { AuthService } from '../../shared/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -17,8 +18,10 @@ export class LoginComponent implements OnInit {
   redemptionOfYearsFormModel: any = {};
   onSubmit() {
     console.log(this.profileForm.value);
+    this.authSrv.login(this.redemptionOfYearsFormModel)
+    
   }
-  constructor() {}
+   constructor(private authSrv:AuthService) {}
 
   ngOnInit(): void {
     this.redemptionOfYearsinitForm();
@@ -30,7 +33,7 @@ export class LoginComponent implements OnInit {
         fieldGroup: [
           {
             className: 'flex-25 padding-10',
-            key: 'email',
+            key: 'user_email',
             type: 'input',
             templateOptions: {
               pattern: '[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$',
