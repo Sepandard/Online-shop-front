@@ -5,3 +5,44 @@ a{
     color: white;
     font-weight: 300;
 }
+.menu-btn{
+    color: white;
+    font-weight: 300;
+}
+.mat-icon-size{
+    font-size: 18px;
+    color: white;
+}
+.name-menu-btn{
+    margin-left: auto;
+}
+.d-inherit{
+    display: inherit;
+}
+.padding-0{
+    padding: 0px;
+}
+.phone-menu{
+    display: none;
+}
+@media screen and (max-width: 600px) {
+    button.menu-btn {
+      display:none;
+    }
+    button.navbar-brand{
+        text-align: center;
+    }
+    button.phone-menu{
+        display: inline-block;
+    }
+    
+  }
+  @media screen and (max-width: 320px) {
+    button.phone-menu{
+        margin-right: 3rem !important;
+    }
+    
+  }
+  .mr-6 {
+    margin-right: 4rem !important;
+}
