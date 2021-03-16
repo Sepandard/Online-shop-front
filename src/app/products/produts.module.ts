@@ -8,6 +8,8 @@ import { ProductsRoutingModule } from './products.routing';
 import { MatButtonModule } from '@angular/material/button';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { MenuComponent } from '../layout/components/menu/menu.component';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -15,13 +17,16 @@ import { MenuComponent } from '../layout/components/menu/menu.component';
     ProductLayoutComponent,
     ProductListComponent,
     ProductDetailComponent,
-    MenuComponent
+    MenuComponent,
+
   ],
   imports: [
     CommonModule,
     MatCardModule,
     ProductsRoutingModule,
     MatButtonModule,
+    MatMenuModule,
+    MatIconModule
   ],
 })
 export class ProdutsModule {}
