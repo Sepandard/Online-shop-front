@@ -12,7 +12,9 @@ export class ProductCardComponent implements OnInit {
 
   constructor(private productSrv: ProductsService, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.productSrv.getProducts()
+  }
   onClinkToDetaliPage(item) {
     this.router.navigate([
       '/online-shop/products/product-detail',
