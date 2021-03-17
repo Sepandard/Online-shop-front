@@ -1,48 +1,58 @@
-.nav-background{
-    background-color: #0072b5;
+.nav-background {
+  background-color: #0072b5;
 }
-a{
-    color: white;
-    font-weight: 300;
+a {
+  color: white;
+  font-weight: 300;
 }
-.menu-btn{
-    color: white;
-    font-weight: 300;
+.menu-btn {
+  color: white;
+  font-weight: 300;
 }
-.mat-icon-size{
-    font-size: 18px;
-    color: white;
+.mat-icon-size {
+  font-size: 18px;
+  color: white;
 }
-.name-menu-btn{
-    margin-left: auto;
+.name-menu-btn {
+  margin-left: auto;
 }
-.d-inherit{
-    display: inherit;
+.d-inherit {
+  display: inherit;
 }
-.padding-0{
-    padding: 0px;
+.d-flex{
+  display: flex !important;
 }
-.phone-menu{
+.padding-0 {
+  padding: 0px;
+}
+.phone-menu {
+  display: none;
+}
+@media screen and (max-width: 750px) {
+  button.menu-btn {
     display: none;
+  } 
+  input {
+    display: none;
+  }
+  button.navbar-brand {
+    text-align: center;
+  }
+  button.phone-menu {
+    display: inline-block;
+  }
 }
-@media screen and (max-width: 600px) {
-    button.menu-btn {
-      display:none;
-    }
-    button.navbar-brand{
-        text-align: center;
-    }
-    button.phone-menu{
-        display: inline-block;
-    }
-    
+@media screen and (max-width: 320px) {
+  button.phone-menu {
+    margin-right: 3rem !important;
   }
-  @media screen and (max-width: 320px) {
-    button.phone-menu{
-        margin-right: 3rem !important;
-    }
-    
-  }
-  .mr-6 {
-    margin-right: 4rem !important;
+}
+.mr-6 {
+  margin-right: 4rem !important;
+}
+.width-200 {
+  width: 300px;
+}
+.account-btn{
+    font-weight: 500;
 }
