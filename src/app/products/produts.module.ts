@@ -10,6 +10,9 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
 import { MenuComponent } from '../layout/components/menu/menu.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormlyModule } from '@ngx-formly/core';
+import { FormlyMaterialModule } from '@ngx-formly/material';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,18 @@ import {MatIconModule} from '@angular/material/icon';
     ProductsRoutingModule,
     MatButtonModule,
     MatMenuModule,
-    MatIconModule
+    MatIconModule,
+    ReactiveFormsModule,
+    FormlyModule.forRoot({
+      validationMessages: [
+        { name: 'required', message: 'This field is required' },
+        {
+          name: 'minlength',
+          message: 'your password must be more than 8 char',
+        },
+      ],
+    }),
+    FormlyMaterialModule,
   ],
 })
 export class ProdutsModule {}
