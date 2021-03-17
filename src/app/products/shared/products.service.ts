@@ -2,16 +2,22 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { BaseService } from 'shared/base-service.service';
 import { CategoryMenu } from 'src/models/category-menu';
+import { Product } from 'src/models/products';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductsService {
   CategoryItem: CategoryMenu;
+  Product: Product;
   constructor(private baseSrv: BaseService) {}
   CategoryMenu$: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
   public get CategoryMenu(): Observable<any[]> {
     return this.CategoryMenu$.asObservable();
+  } 
+  Products$: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
+  public get Products(): Observable<any[]> {
+    return this.Products$.asObservable();
   }
   getcategory(model?: String) {
     return this.baseSrv.getReq('product/searchProductCategory', model);
@@ -32,10 +38,17 @@ export class ProductsService {
     return CategoryArr;
   }
   getProducts(productname?){
-    this.baseSrv.getReq('product/searchProduct',productname).subscribe((res)=>{
-      console.log(res);
-      
+    let productArr :any[]=[]
+    this.baseSrv.getReq('product/searchProduct',"productname",productname).subscribe((res:any)=>{
+      console.log(res.data[0].products);
+      res.data[0].products.forEach((element) => {
+        let product = new Product(element);
+        productArr.push(product);
+      });
+  
     })
+    console.log(productArr);
+    
   }
 
   fakeData = [
