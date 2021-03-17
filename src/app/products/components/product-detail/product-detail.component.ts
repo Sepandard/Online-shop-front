@@ -9,7 +9,7 @@ import { ProductsService } from '../../shared/products.service';
 })
 export class ProductDetailComponent implements OnInit {
   url: String = '';
-  selectedProduct: Product;
+  selectedProduct:any;
   constructor(private productSrv: ProductsService) {}
 
   ngOnInit(): void {
