@@ -1,0 +1,46 @@
+.<div class="container">
+    <mat-card>
+    <div class="name-menu-btn  d-flex">
+        <form class="d-flex" [formGroup]="searchForm" (ngSubmit)="onSubmitImportedFilePattern()">
+        <button class="menu-btn name-menu-btn" mat-menu-item *ngIf="false"> <mat-icon class="mat-icon-size">login</mat-icon>Login </button>
+        <input type="text" class="form-control width-200 " id="usr"  formControlName="search">
+        <button class="menu-btn " type="submit" mat-button >Search<mat-icon class="ml-1">search</mat-icon> </button>
+      </form>
+    </div>
+      
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="weight">
+          <th mat-header-cell *matHeaderCellDef> Weight </th>
+          <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="symbol">
+          <th mat-header-cell *matHeaderCellDef> Symbol </th>
+          <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">No data matching the filter "{{searchForm.value}}"</td>
+        </tr>
+      </table>
+    </mat-card>
+    </div>
