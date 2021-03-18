@@ -17,8 +17,8 @@ export class LoginComponent implements OnInit {
   redemptionOfYearsForm = new FormGroup({});
   redemptionOfYearsFormModel: any = {};
   onSubmit() {
-    console.log(this.profileForm.value);
-    this.authSrv.login(this.redemptionOfYearsFormModel)
+    
+    
     
   }
    constructor(private authSrv:AuthService) {}

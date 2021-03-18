@@ -15,7 +15,7 @@ export class SignupComponent implements OnInit {
   redemptionOfYearsForm = new FormGroup({});
   redemptionOfYearsFormModel: any = {};
   onSubmit() {
-    console.log(this.redemptionOfYearsFormModel);
+
     
     this.authSrv.singup(this.redemptionOfYearsFormModel)
   }
