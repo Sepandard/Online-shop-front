@@ -31,7 +31,7 @@ export class ProductsService {
           let item = new CategoryMenu(element);
           CategoryArr.push(item);
         });
-        console.log(CategoryArr);
+        
         this.CategoryMenu$.next(CategoryArr);
       }
     });
@@ -40,14 +40,14 @@ export class ProductsService {
   getProducts(productname?){
     let productArr :any[]=[]
     this.baseSrv.getReq('product/searchProduct',"productname",productname).subscribe((res:any)=>{
-      console.log(res.data[0].products);
+
       res.data[0].products.forEach((element) => {
         let product = new Product(element);
         productArr.push(product);
       });
   
     })
-    console.log(productArr);
+    
     
   }
 

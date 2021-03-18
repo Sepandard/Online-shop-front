@@ -33,11 +33,11 @@ export class MenuComponent implements OnInit {
     localStorage.setItem('token',null)
   }
   onSubmitImportedFilePattern(){
-    console.log(this.searchForm.value);
+
     this.productSrv.getProducts(this.searchForm.value.search)
   }
  initsearchFrom(){
-   console.log("mmd");
+   
    
    this.productSrv.getProducts();
    this.importedFilePatternConfig = [
