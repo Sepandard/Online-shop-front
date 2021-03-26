@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import {MatTableDataSource} from '@angular/material/table';
+import { AdminService } from '../../shared/admin.service';
 
 @Component({
   selector: 'app-order-manger',
@@ -9,10 +10,24 @@ import {MatTableDataSource} from '@angular/material/table';
 })
 export class OrderMangerComponent implements OnInit {
   searchForm = new FormGroup({
-    search: new FormControl(''),
+  
+    searchID: new FormControl(''),
   });
-  onSubmitImportedFilePattern(){
+  getOrder(){
+    let orderArr :any[]=[]
 
+    this.adminSrv.getOrder().subscribe((data:any)=>{
+      console.log(data.data[0]);
+  
+      
+    })
+  }
+  onSubmitImportedFilePattern(){
+   
+    this.adminSrv.getOrder(this.searchForm.value.searchID).subscribe(data=>{
+      console.log(data);
+      
+    })
   }
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
@@ -21,9 +36,10 @@ export class OrderMangerComponent implements OnInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-  constructor() { }
+  constructor(private adminSrv:AdminService) { }
 
   ngOnInit(): void {
+    this.getOrder()
   }
 
 }

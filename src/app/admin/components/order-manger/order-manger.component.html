@@ -1,10 +1,11 @@
 .<div class="container">
     <mat-card>
+      
     <div class="name-menu-btn  d-flex">
-        <form class="d-flex" [formGroup]="searchForm" (ngSubmit)="onSubmitImportedFilePattern()">
+        <form class="d-flex mb-3" [formGroup]="searchForm" (ngSubmit)="onSubmitImportedFilePattern()">
         <button class="menu-btn name-menu-btn" mat-menu-item *ngIf="false"> <mat-icon class="mat-icon-size">login</mat-icon>Login </button>
-        <input type="text" class="form-control width-200 " id="usr"  formControlName="search">
-        <button class="menu-btn " type="submit" mat-button >Search<mat-icon class="ml-1">search</mat-icon> </button>
+        <input placeholder="Order ID" type="number" class="form-control width-200 " id="usr"  formControlName="searchID">
+        <button class="menu-btn " type="submit" mat-button >Search </button>
       </form>
     </div>
       
