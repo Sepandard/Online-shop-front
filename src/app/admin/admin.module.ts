@@ -15,6 +15,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -34,9 +36,10 @@ import { MatCardModule } from '@angular/material/card';
     ReactiveFormsModule,
     MatSidenavModule,
     MatToolbarModule,
-    MatCardModule
-    
-    
+    MatCardModule,
+    MatButtonModule,
+    MatPaginatorModule,
+    MatListModule
   ],
 })
 export class AdminModule {}
