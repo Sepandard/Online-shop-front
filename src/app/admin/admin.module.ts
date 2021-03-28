@@ -17,6 +17,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import {MatListModule} from '@angular/material/list';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { ButtonRendererComponent } from './components/product-manger/button-renderer/button-renderer.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import {MatListModule} from '@angular/material/list';
     OrderMangerComponent,
     ProductMangerComponent,
     AdminNavbarComponent,
+    ButtonRendererComponent,
   ],
   imports: [
     CommonModule,
@@ -39,7 +42,8 @@ import {MatListModule} from '@angular/material/list';
     MatCardModule,
     MatButtonModule,
     MatPaginatorModule,
-    MatListModule
+    MatListModule,
+    MatCheckboxModule
   ],
 })
 export class AdminModule {}
