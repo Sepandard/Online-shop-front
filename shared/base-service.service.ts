@@ -20,4 +20,7 @@ export class BaseService {
     }
     return this.http.get(url);
   }
+  getReqByUrl(url){
+    return this.http.get("http://localhost:5000/api/"+url);
+  }
 }

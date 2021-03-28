@@ -4,14 +4,15 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-admin-navbar',
   templateUrl: './admin-navbar.component.html',
-  styleUrls: ['./admin-navbar.component.css']
+  styleUrls: ['./admin-navbar.component.css'],
 })
 export class AdminNavbarComponent implements OnInit {
   mobileQuery: MediaQueryList;
 
-  fillerNav = Array.from({length: 50}, (_, i) => `Nav Item ${i + 1}`);
-
-
+  fillerNav = [
+    { navItem: 'Product Manger', route: '/online-shop/admin/product-manger' },
+    { navItem: 'Order Manger', route: '/online-shop/admin/order-manger' },
+  ];
 
   private _mobileQueryListener: () => void;
 
@@ -20,13 +21,9 @@ export class AdminNavbarComponent implements OnInit {
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
 
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
-
-  
 }

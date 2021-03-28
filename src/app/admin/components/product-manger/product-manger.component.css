@@ -1,0 +1,12 @@
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  .menu-btn {
+    color: #0072b5;
+    font-weight: 300;
+  }

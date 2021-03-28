@@ -1,0 +1,13 @@
+<div class="d-flex">
+  <button
+    class="mr-1"
+    *ngFor="let item of buttonConfig"
+    mat-raised-button
+    [color]="item.color"
+    [type]="item.type"
+    (click)="onClickButton.emit({ action: item.name, row: row })"
+  >
+    {{ item.name }}
+    <mat-icon>{{item.icon}}</mat-icon>
+  </button>
+</div>
