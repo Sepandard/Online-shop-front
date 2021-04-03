@@ -12,6 +12,7 @@ export class AdminNavbarComponent implements OnInit {
   fillerNav = [
     { navItem: 'Product Manger', route: '/online-shop/admin/product-manger' },
     { navItem: 'Order Manger', route: '/online-shop/admin/order-manger' },
+    { navItem: 'Add new product', route: '/online-shop/admin/add-product' },
   ];
 
   private _mobileQueryListener: () => void;
