@@ -2,7 +2,7 @@
   <button
     class="mr-1"
     *ngFor="let item of buttonConfig"
-    mat-raised-button
+    mat-button
     [color]="item.color"
     [type]="item.type"
     (click)="onClickButton.emit({ action: item.name, row: row })"

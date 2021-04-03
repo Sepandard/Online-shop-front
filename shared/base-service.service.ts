@@ -23,4 +23,9 @@ export class BaseService {
   getReqByUrl(url){
     return this.http.get("http://localhost:5000/api/"+url);
   }
+   deleteReq(model: any, path: any){
+    return this.http.delete('http://localhost:5000/api/' + path, {
+      params: { model },
+    });
+   }
 }

@@ -1,0 +1,15 @@
+<mat-label class="mb-4 Bold">{{ config.message }}</mat-label>
+
+<div mat-dialog-actions class="mt-3">
+  <button
+    mat-button
+    color="warn"
+    [mat-dialog-close]="true"
+    (click)="onDelete()"
+  >
+    {{ config.submitBtnTitle }}
+  </button>
+  <button mat-button color="primary" [mat-dialog-close]="false" cdkFocusInitial>
+    {{ config.cancelBtnTitle }}
+  </button>
+</div>
