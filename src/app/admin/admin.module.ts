@@ -18,11 +18,14 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import {MatListModule} from '@angular/material/list';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import { ButtonRendererComponent } from './components/product-manger/button-renderer/button-renderer.component';
+import { ButtonRendererComponent } from './components/button-renderer/button-renderer.component';
 import { DeleteDailogComponent } from './components/delete-dailog/delete-dailog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatTabsModule} from '@angular/material/tabs';
+import { FormlyModule } from '@ngx-formly/core';
+import { FormlyMaterialModule } from '@ngx-formly/material';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -52,6 +55,9 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatDialogModule,
     MatSnackBarModule,
     MatTabsModule,
+    FormlyModule,
+    FormlyMaterialModule,
+    MatInputModule
   ],
 })
 export class AdminModule {}
