@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Button } from '../product-manger.component';
+import { Button } from '../product-manger/product-manger.component';
 
 @Component({
   selector: 'app-button-renderer',
