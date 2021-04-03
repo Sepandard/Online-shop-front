@@ -1,6 +1,6 @@
 <mat-tab-group id="mat-tab-header">
   <mat-tab label="First">
-    <div class="mt-4 container animate__animated animate__fadeIn">
+    <div class=" contain animate__animated animate__fadeIn">
       <mat-card>
         <div class="name-menu-btn d-flex">
           <form
@@ -12,19 +12,26 @@
             <button class="menu-btn name-menu-btn" mat-menu-item *ngIf="false">
               <mat-icon class="mat-icon-size">login</mat-icon>Login
             </button>
+            <mat-form-field >
             <input
+            matInput 
               placeholder="Product ID"
               type="number"
               class="form-control width-200"
               formControlName="searchID"
               [disabled]="onClick()"
             />
+          </mat-form-field>
+          <mat-form-field class="ml-4">
+            
             <input
+            matInput 
               placeholder="ProductName"
               type="text"
               class="ml-3 form-control width-200"
               formControlName="searchName"
             />
+          </mat-form-field>
             <button class="menu-btn" type="submit" mat-button>Search</button>
           </form>
         </div>
