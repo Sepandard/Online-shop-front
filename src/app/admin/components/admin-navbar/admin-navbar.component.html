@@ -1,10 +1,10 @@
-<div class="example-container " [class.example-is-mobile]="mobileQuery.matches" >
+<div class="example-container p-sticky" [class.example-is-mobile]="mobileQuery.matches" >
     <mat-toolbar color="primary" class="example-toolbar p-sticky">
       <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
       <h1 class="example-app-name">Online Shop <sub>Admin</sub></h1>
     </mat-toolbar>
   
-    <mat-sidenav-container class="example-sidenav-container"
+    <mat-sidenav-container class="example-sidenav-container "
                            [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
       <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
                    [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">

@@ -18,3 +18,15 @@ table {
   #mat-tab-header ::ng-deep .mat-tab-header.mat-tab-header {
     display: none;
   }
+
+  .contain{
+    max-width: 1551.8px;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.mat-input-element{
+  box-shadow: none !important;
+}

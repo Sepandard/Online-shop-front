@@ -1,0 +1,25 @@
+<div class="contain">
+  <mat-card class="mt-5-5">
+    <form [formGroup]="addProductform" (ngSubmit)="onSubmit()" class="mt-4">
+      <formly-form
+        [model]="addProductformModel"
+        [fields]="addProductformConfig"
+        [form]="addProductform"
+      ></formly-form>
+      <button class="mr-2" mat-raised-button color="warn" (click)="onRestForm()">
+        Clear
+        <mat-icon>clear</mat-icon>
+      </button>
+      <button
+        type="submit"
+        mat-raised-button
+        color="primary"
+        [disabled]="addProductform.invalid"
+      >
+        Submit
+        <mat-icon>add</mat-icon>
+      </button>
+    
+    </form>
+  </mat-card>
+</div>
