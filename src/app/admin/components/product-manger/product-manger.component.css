@@ -10,3 +10,11 @@ table {
     color: #0072b5;
     font-weight: 300;
   }
+
+  .contian{
+    max-width: 1713px;
+  
+  }
+  #mat-tab-header ::ng-deep .mat-tab-header.mat-tab-header {
+    display: none;
+  }

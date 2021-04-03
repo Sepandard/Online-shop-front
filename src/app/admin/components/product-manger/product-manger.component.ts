@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
 import { AdminService } from '../../shared/admin.service';
+import { DeleteDailogComponent } from '../delete-dailog/delete-dailog.component';
 
 @Component({
   selector: 'app-product-manger',
@@ -14,7 +17,7 @@ export class ProductMangerComponent implements OnInit {
   displayedColumns: string[] = ['productid', 'productname', 'productprice', 'productdescription', 'categoryproductname' , 'oparator'];
   prodcutArrName :any [] =[]
   dataSource = new MatTableDataSource(this.prodcutArrName);
-  constructor(private adminSrv:AdminService) { }
+  constructor(private adminSrv:AdminService ,private matDailog:MatDialog,private  matSnackbar:MatSnackBar) { }
 
   ngOnInit(): void {
     this.onSubmitImportedFilePattern()
@@ -52,10 +55,35 @@ export class ProductMangerComponent implements OnInit {
   }
 
 
-  onClickButton($event) {
-    console.log($event)
+  onClickButton(event) {
+
+
+    if(event.action=="Delete"){
+        this.matDailog.open(DeleteDailogComponent, {
+          data: {
+            onDelete: this.onDeleteProduct.bind(this, event.row.productid),
+          },
+        });
+    }
+  
   }
 
+  onDeleteProduct(productId){
+
+    
+    this.adminSrv.deleteProduct(productId).subscribe((data:any)=>{
+      if(data.Success){
+          this.matSnackbar.open('Prodcut Successfully Delete', 'X', {
+            duration: 5000,
+          });
+          this.onSubmitImportedFilePattern()
+      }else{
+        this.matSnackbar.open(' Failed to Delete ', 'X', {
+          duration: 5000,
+        });
+      }
+    })
+  }
 }
 
 export interface Button{
