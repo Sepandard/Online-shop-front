@@ -14,5 +14,7 @@ export class AdminService {
    getProduct(productname?:String,productid?:number){
     return this.baseSrv.getReqByUrl("product/searchProductName?productname="+productname+"&productid="+productid)
   }
-  
+  deleteProduct(productid:number){
+   return this.baseSrv.deleteReq(productid,'product/deleteProduct')
+  }  
 }
