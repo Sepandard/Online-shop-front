@@ -30,7 +30,7 @@ export class SignupComponent implements OnInit {
         fieldGroupClassName: 'flex-container',
         fieldGroup: [
           {
-            className: 'flex-25 padding-10',
+            className: 'flex-100 padding-10',
             key: 'user_email',
             type: 'input',
             templateOptions: {
@@ -47,7 +47,7 @@ export class SignupComponent implements OnInit {
             },
           },
           {
-            className: 'flex-25 padding-20',
+            className: 'flex-100 padding-10',
             key: 'password',
             type: 'input',
 
@@ -61,7 +61,7 @@ export class SignupComponent implements OnInit {
             },
           },
           {
-            className: 'flex-25 padding-20',
+            className: 'flex-100 padding-10',
             key: 'user_nickname',
             type: 'input',
 
