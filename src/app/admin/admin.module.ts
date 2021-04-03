@@ -19,6 +19,10 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatListModule} from '@angular/material/list';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { ButtonRendererComponent } from './components/product-manger/button-renderer/button-renderer.component';
+import { DeleteDailogComponent } from './components/delete-dailog/delete-dailog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -28,6 +32,7 @@ import { ButtonRendererComponent } from './components/product-manger/button-rend
     ProductMangerComponent,
     AdminNavbarComponent,
     ButtonRendererComponent,
+    DeleteDailogComponent,
   ],
   imports: [
     CommonModule,
@@ -43,7 +48,10 @@ import { ButtonRendererComponent } from './components/product-manger/button-rend
     MatButtonModule,
     MatPaginatorModule,
     MatListModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatDialogModule,
+    MatSnackBarModule,
+    MatTabsModule,
   ],
 })
 export class AdminModule {}
