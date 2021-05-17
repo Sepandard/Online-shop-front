@@ -1,0 +1,51 @@
+<!-- <mat-spinner class="mt-5" ></mat-spinner> -->
+<mat-tab-group
+  [selectedIndex]="tabIndex"
+  
+>
+  <mat-tab>
+    <div class="container mb-3" *ngIf="this.profileDetail != undefined">
+      <mat-card class="mt-6">
+        <div
+          class="avatar male-avatar"
+          *ngIf="this.profileDetail.user_gender == 1"
+        ></div>
+        <div
+          class="avatar female-avatar"
+          *ngIf="this.profileDetail.user_gender == 2"
+        ></div>
+        <div
+          class="avatar other-avatar"
+          *ngIf="this.profileDetail.user_gender == 3"
+        ></div>
+        <div class="p-inline-grid container width-30" *ngIf="profileDetail">
+          <div *ngFor="let item of profileData">
+            <b>{{ item.filedLabel }}:</b>
+            {{ item.fieldData }}
+          </div>
+        </div>
+
+        <hr />
+        <div class="">
+          <button
+            mat-flat-button
+            class="mt-3 col-4 btn-primary"
+            (click)="goToEdit()"
+          >
+            <div>Edit</div>
+          </button>
+
+          <button mat-flat-button class="mt-3 col-4 btn-primary">
+            <div>Shopping List</div>
+          </button>
+          <button mat-flat-button class="mt-3 col-4 btn-primary">
+            <div>Shopping History</div>
+          </button>
+        </div>
+      </mat-card>
+    </div>
+  </mat-tab>
+  <mat-tab>
+    <app-profile-edit [profileEditFormModel]="profileDetail" (tabIndex)="getTabIndex($event)"></app-profile-edit>
+  </mat-tab>
+</mat-tab-group>

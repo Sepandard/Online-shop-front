@@ -1,0 +1,35 @@
+.p-inline-grid {
+  display: inline-grid;
+}
+.mt-6 {
+  margin-top: 5rem;
+}
+.avatar {
+  height: 15vh;
+  background-size: contain;
+  background-position: center;
+  object-fit: cover;
+  background-repeat: no-repeat;
+}
+.male-avatar {
+  background-image: url("../../../images/undraw_male_avatar_323b.svg");
+}
+.female-avatar {
+  background-image: url("../../../images/undraw_female_avatar_w3jk .svg");
+}
+.other-avatar {
+  background-image: url("../../../images/undraw_pride_y0te .svg");
+}
+.container {
+  width: 35% !important;
+}
+ .btn-primary{
+  color: #1c1c1c;
+} 
+.btn-primary :hover {
+  color: white !important;
+}
+
+#mat-tab-header ::ng-deep .mat-tab-header.mat-tab-header {
+  display: none;
+}
