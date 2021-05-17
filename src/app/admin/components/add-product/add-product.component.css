@@ -7,3 +7,17 @@
     margin-right: auto;
     margin-left: auto;
 }
+.mat-progress-bar{
+    width: 10% !important;
+}
+.green-color{
+    background-color:#6C63FF !important;
+    color: #fff !important;
+}
+.add-product-bg {
+    height: 30vh;
+    background: url("../../../images/undraw_Mobile_feed_re_72ta.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
