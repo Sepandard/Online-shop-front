@@ -29,10 +29,11 @@ export class AuthService {
   login(model: any) {
     this.baseSrv.postReq(model, 'auth/login').subscribe((res: any) => {
       if (res.Success) {
-        localStorage.setItem('nickName',res.data[0].nickname)
-        localStorage.setItem('token',res.data[0].token)
+        localStorage.setItem('nickName', res.data[0].nickname);
+        localStorage.setItem('token', res.data[0].token);
+        localStorage.setItem('user_id', res.data[0].user_id);
         this.matsnack.open('Welcome! <3', 'X', { duration: 5000 });
-        
+
         this.router.navigate(['/online-shop/products/product-list']);
       } else {
         this.matsnack.open(res.message, 'X', { duration: 5000 });
