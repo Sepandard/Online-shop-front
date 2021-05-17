@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from 'src/shared/auth.guard';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { ProductLayoutComponent } from './components/product-layout/product-layout.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
   {
@@ -16,11 +18,16 @@ const routes: Routes = [
       {
         path: 'product-detail',
         component: ProductDetailComponent,
+      }, 
+      {
+        path: 'profile',
+        component: ProfileComponent,
+        canActivate: [AuthGuard] 
       },
     ],
   },
   {
-    path: '**',
+    path: '**',   
     redirectTo: '/product-list',
   },
 ];
