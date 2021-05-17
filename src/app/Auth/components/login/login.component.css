@@ -7,14 +7,15 @@
 
 .login-card {
   flex: 1;
-  background-color: #0072b5;
-  clip-path: ellipse(98% 86% at 88% 17%);
+  background-color: rgba(0,0,0,0.8);
+  clip-path: circle(86.2% at 79% 23%);
+
 }
 
 .bg-img {
   height: 100vh;
   flex: 1;
-  background-image: url("../../../images/undraw_authentication_fsn5.svg");
+  background-image: url("../../../images/undraw_unlock_24mb.svg");
   background-size: cover;
   background-position: center;
   object-fit: cover;
