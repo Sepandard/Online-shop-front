@@ -62,7 +62,7 @@ export class SignupComponent implements OnInit {
           },
           {
             className: 'flex-100 padding-10',
-            key: 'user_nickname',
+             key: 'user_nickname',
             type: 'input',
 
             templateOptions: {
@@ -72,6 +72,7 @@ export class SignupComponent implements OnInit {
             },
           },
           {
+            className: 'flex-100 padding-10',
             key: 'user_gender',
             type: 'radio',
             templateOptions: {
