@@ -1,31 +1,32 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig } from '@ngx-formly/core';
-import { User } from 'src/models/user';
-import { AuthService } from '../../shared/auth.service';
+import { ProductsService } from 'src/app/products/shared/products.service';
 
 @Component({
-  selector: 'app-signup',
-  templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css'],
+  selector: 'app-profile-edit',
+  templateUrl: './profile-edit.component.html',
+  styleUrls: ['./profile-edit.component.css'],
 })
-export class SignupComponent implements OnInit {
-  model: User;
-  redemptionOfYearsFormConfig: FormlyFieldConfig[];
-  redemptionOfYearsForm = new FormGroup({});
-  redemptionOfYearsFormModel: any = {};
-  onSubmit() {
+export class ProfileEditComponent implements OnInit {
+  profileEditFormConfig: FormlyFieldConfig[];
+  profileEditForm = new FormGroup({});
+  @Input() profileEditFormModel: any = {};
+  @Output() tabIndex = new EventEmitter<any>();
 
-    
-    this.authSrv.singup(this.redemptionOfYearsFormModel)
-  }
-  constructor(private authSrv:AuthService) {}
+  constructor(private productSrv: ProductsService) {}
 
   ngOnInit(): void {
-    this.redemptionOfYearsinitForm();
+    this.initForm();
   }
-  redemptionOfYearsinitForm() {
-    this.redemptionOfYearsFormConfig = [
+  onSubmit() {
+    this.productSrv.putPersonal(this.profileEditFormModel);
+  }
+  onRestForm() {
+    this.tabIndex.emit(0);
+  }
+  initForm() {
+    this.profileEditFormConfig = [
       {
         fieldGroupClassName: 'flex-container',
         fieldGroup: [
@@ -62,7 +63,7 @@ export class SignupComponent implements OnInit {
           },
           {
             className: 'flex-100 padding-10',
-             key: 'user_nickname',
+            key: 'user_nickname',
             type: 'input',
 
             templateOptions: {
@@ -81,9 +82,9 @@ export class SignupComponent implements OnInit {
               required: true,
               name: 'gender',
               options: [
-                { value: 'Male', key: '1' },
-                { value: 'Female', key: '2' },
-                { value: 'Other', key: '3' },
+                { value: 'Male', key: 1 },
+                { value: 'Female', key: 2 },
+                { value: 'Other', key: 3 },
               ],
             },
           },

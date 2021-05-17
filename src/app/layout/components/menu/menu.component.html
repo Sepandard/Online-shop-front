@@ -1,51 +1,89 @@
 <div>
   <nav class="navbar navbar-expand-sm nav-background fixed-top">
-    <button class="menu-btn phone-menu mr-6" mat-icon-button [matMenuTriggerFor]="phoneMenu" aria-label="Example icon-button with a menu">
+    <button
+      class="menu-btn phone-menu mr-6"
+      mat-icon-button
+      [matMenuTriggerFor]="phoneMenu"
+      aria-label="Example icon-button with a menu"
+    >
       <mat-icon>more_vert</mat-icon>
     </button>
     <mat-menu #phoneMenu="matMenu">
-  
-      <button   mat-menu-item [matMenuTriggerFor]="ca"><mat-icon >category</mat-icon> category </button>
+      <button mat-menu-item [matMenuTriggerFor]="ca">
+        <mat-icon>category</mat-icon> category
+      </button>
       <mat-menu #ca="matMenu">
-        <button mat-menu-item *ngFor="let item of categoryArr">{{ item.categoryproductname }}</button>
-        
+        <button mat-menu-item *ngFor="let item of categoryArr">
+          {{ item.categoryproductname }}
+        </button>
       </mat-menu>
-  
-     
     </mat-menu>
-    <a class="navbar-brand" [routerLink]="['/online-shop/products/product-list']" routerLinkActive="router-link-active" >Online Shop</a>
+    <a
+      class="navbar-brand"
+      [routerLink]="['/online-shop/products/product-list']"
+      routerLinkActive="router-link-active"
+      >Online Shop</a
+    >
     <ul class="navbar-nav">
-   
-  
       <li class="nav-item dropdown">
-        <button class="menu-btn" mat-button [matMenuTriggerFor]="ca"><mat-icon class="mat-icon-size">category</mat-icon> category </button>
+        <button class="menu-btn" mat-button [matMenuTriggerFor]="ca">
+          <mat-icon class="mat-icon-size">category</mat-icon> category
+        </button>
         <mat-menu #ca="matMenu">
-          <button mat-menu-item *ngFor="let item of categoryArr">{{ item.categoryproductname }}</button>
-          
+          <button mat-menu-item *ngFor="let item of categoryArr">
+            {{ item.categoryproductname }}
+          </button>
         </mat-menu>
-      
-        
-       
+
         <div class="dropdown-menu"></div>
       </li>
     </ul>
-    <div class="name-menu-btn  d-flex">
-      <form class="d-flex"   [formGroup]="searchForm "
-      (ngSubmit)="onSubmitImportedFilePattern()">
-      <button class="menu-btn name-menu-btn" mat-menu-item *ngIf="false"> <mat-icon class="mat-icon-size">login</mat-icon>Login </button>
-      <input type="text" class="form-control width-200 " id="usr"  formControlName="search">
-      <button class="menu-btn " type="submit" mat-button >Search<mat-icon class="ml-1">search</mat-icon> </button>
-    </form>
-  </div>
-  <button *ngIf="true" class="menu-btn name-menu-btn mr-2 account-btn" mat-button [matMenuTriggerFor]="menu"> {{this.nickname}} <mat-icon class="mr-2">portrait </mat-icon> </button>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item>Profile</button>
-    <button mat-menu-item (click)="onLogout()">Logout</button>
-  </mat-menu>
-  <button class="menu-btn" mat-button ><mat-icon>link </mat-icon> name </button>
-  
-  
+    <div class="name-menu-btn d-flex">
+      <form
+        class="d-flex"
+        [formGroup]="searchForm"
+        (ngSubmit)="onSubmitImportedFilePattern()"
+      >
+        <input
+          type="text"
+          class="form-control width-200"
+          id="usr"
+          formControlName="search"
+        />
+        <button class="menu-btn" type="submit" mat-button>
+          Search<mat-icon class="ml-1">search</mat-icon>
+        </button>
+      </form>
+    </div>
+
+    <button
+      *ngIf="this.showProfile"
+      class="menu-btn name-menu-btn mr-2 account-btn"
+      mat-button
+      [matMenuTriggerFor]="menu"
+    >
+      {{ this.nickname }} <mat-icon class="mr-2">portrait </mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button
+        mat-menu-item
+        [routerLink]="['/online-shop/products/profile']"
+        routerLinkActive="router-link-active"
+      >
+        Profile
+      </button>
+      <button mat-menu-item (click)="onLogout()">Logout</button>
+    </mat-menu>
+
+    <button
+      class="menu-btn name-menu-btn mr-2 account-btn"
+      mat-button
+      *ngIf="!this.showProfile"
+      [routerLink]="['/online-shop/auth/login']"
+    >
+      Login
+      <mat-icon class="mat-icon-size">login</mat-icon>
+    </button>
+    <button class="menu-btn" mat-button><mat-icon>link </mat-icon> name</button>
   </nav>
-  </div>
-  
-  
+</div>

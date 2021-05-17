@@ -1,25 +1,25 @@
 <div class="wrapper-bg d-flex animate__animated animate__fadeIn">
   <div class="bg-img"></div>
-  <div class="login-card">
-    <mat-card class="m-2">
+  <div class="login-card mt-3">
+    <mat-card class="m-2 ">
       <mat-card-title>Login</mat-card-title>
       <mat-card-subtitle>Please Enter your Email & Password</mat-card-subtitle>
 
       <form
-        [formGroup]="redemptionOfYearsForm"
+        [formGroup]="loginForm"
         (ngSubmit)="onSubmit()"
         class="mt-4"
       >
         <formly-form
-          [model]="redemptionOfYearsFormModel"
-          [fields]="redemptionOfYearsFormConfig"
-          [form]="redemptionOfYearsForm"
+          [model]="loginFormModel"
+          [fields]="loginFormConfig"
+          [form]="loginForm"
         ></formly-form>
         <button
         type="submit"
         mat-flat-button
         class="mt-3 col-12 btn-primary"
-        [disabled]="this.redemptionOfYearsForm.invalid"
+        [disabled]="this.loginForm.invalid"
       >
         Login
       </button>

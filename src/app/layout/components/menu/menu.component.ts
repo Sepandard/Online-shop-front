@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 import { ProductsService } from 'src/app/products/shared/products.service';
-import { CategoryMenu } from 'src/models/category-menu';
+import { isNullOrUndefined } from 'util';
+
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css']
+  styleUrls: ['./menu.component.css'],
 })
 export class MenuComponent implements OnInit {
   searchForm = new FormGroup({
@@ -15,46 +16,52 @@ export class MenuComponent implements OnInit {
   });
   importedFilePatternModel: any = {};
   importedFilePatternConfig: FormlyFieldConfig[];
-  constructor( private productSrv:ProductsService) { }
-  categoryArr :any[]
-  nickname:String
-  
+  constructor(private productSrv: ProductsService) {}
+  categoryArr: any[];
+  nickname: String;
+  showProfile: boolean = false;
   ngOnInit(): void {
-    this.nickname=localStorage.getItem('nickName')
+    this.nickname = localStorage.getItem('nickName');
+    this.checkProfile();
     this.categoryArr = this.productSrv.getCategoryMenu();
-    this.initsearchFrom()
+    this.initsearchFrom();
   }
-  getCategoryMenu(){
-    
-    
-  }
-  onLogout(){
-    localStorage.setItem('nickName',null)
-    localStorage.setItem('token',null)
-  }
-  onSubmitImportedFilePattern(){
+  getCategoryMenu() {}
+  checkProfile() {
+    console.log(this.nickname);
 
-    this.productSrv.getProducts(this.searchForm.value.search)
+    if (!isNullOrUndefined(this.nickname) && this.nickname != 'null') {
+      this.showProfile = true;
+    } else {
+      this.showProfile = false;
+    }
   }
- initsearchFrom(){
-   
-   
-   this.productSrv.getProducts();
-   this.importedFilePatternConfig = [
-     {
-       fieldGroupClassName: 'flex-container',
-       fieldGroup: [
-         {
-           className: 'flex-25 padding-10 ',
-           key: 'SalaryFactorId',
-           type: 'input',
-           templateOptions: {
-             label: 'Search',
-             required: true,
-           },
-         },
-       ],
-     },
-   ];
- }
+  onLogout() {
+    localStorage.setItem('nickName', null);
+    localStorage.setItem('token', null);
+    localStorage.setItem('user_id', null);
+    location.reload();
+  }
+  onSubmitImportedFilePattern() {
+    this.productSrv.getProducts(this.searchForm.value.search);
+  }
+  initsearchFrom() {
+    this.productSrv.getProducts();
+    this.importedFilePatternConfig = [
+      {
+        fieldGroupClassName: 'flex-container',
+        fieldGroup: [
+          {
+            className: 'flex-25 padding-10 ',
+            key: 'SalaryFactorId',
+            type: 'input',
+            templateOptions: {
+              label: 'Search',
+              required: true,
+            },
+          },
+        ],
+      },
+    ];
+  }
 }

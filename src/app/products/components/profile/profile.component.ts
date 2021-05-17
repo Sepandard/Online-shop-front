@@ -1,31 +1,53 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { Component, OnInit, Output } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { CanActivate } from '@angular/router';
 import { FormlyFieldConfig } from '@ngx-formly/core';
+
 import { User } from 'src/models/user';
-import { AuthService } from '../../shared/auth.service';
+import { ProductsService } from '../../shared/products.service';
 
 @Component({
-  selector: 'app-signup',
-  templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css'],
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.css'],
 })
-export class SignupComponent implements OnInit {
-  model: User;
-  redemptionOfYearsFormConfig: FormlyFieldConfig[];
-  redemptionOfYearsForm = new FormGroup({});
-  redemptionOfYearsFormModel: any = {};
-  onSubmit() {
-
-    
-    this.authSrv.singup(this.redemptionOfYearsFormModel)
-  }
-  constructor(private authSrv:AuthService) {}
-
+export class ProfileComponent implements OnInit {
+  profileFormConfig: FormlyFieldConfig[];
+  profileForm = new FormGroup({});
+  profileFormModel: any = {};
+  profileDetail: User;
+  profileData: any;
+  pending: boolean = false;
+  tabIndex: number;
+  constructor(private productSrv: ProductsService) {}
   ngOnInit(): void {
-    this.redemptionOfYearsinitForm();
+    this.profileForminitForm();
+    this.getPersonalInformation();
   }
-  redemptionOfYearsinitForm() {
-    this.redemptionOfYearsFormConfig = [
+  getPersonalInformation() {
+    let PersonalData;
+    this.productSrv
+      .getPersonal(localStorage.getItem('user_id'))
+      .subscribe((data: any) => {
+        this.pending = true;
+        this.profileDetail = PersonalData = new User(data.data[0].user[0]);
+
+        this.profileData = [
+          { filedLabel: 'name', fieldData: this.profileDetail.user_nickname },
+          { filedLabel: 'Email', fieldData: this.profileDetail.user_email },
+          { filedLabel: 'Gender', fieldData: this.profileDetail.user_gender },
+          { filedLabel: 'Role', fieldData: this.profileDetail.user_roleid },
+        ];
+      });
+  }
+  goToEdit() {
+    this.tabIndex = 1;
+  }
+  getTabIndex(event) {
+    this.tabIndex = event;
+  }
+  profileForminitForm() {
+    this.profileFormConfig = [
       {
         fieldGroupClassName: 'flex-container',
         fieldGroup: [
@@ -62,7 +84,7 @@ export class SignupComponent implements OnInit {
           },
           {
             className: 'flex-100 padding-10',
-             key: 'user_nickname',
+            key: 'user_nickname',
             type: 'input',
 
             templateOptions: {

@@ -1,0 +1,35 @@
+<div class="wrapper">
+  <div class="container mt-6 mb-3">
+    <mat-card>
+      <form [formGroup]="profileEditForm" (ngSubmit)="onSubmit()" class="mt-4">
+        <formly-form
+          [model]="profileEditFormModel"
+          [fields]="profileEditFormConfig"
+          [form]="profileEditForm"
+        ></formly-form>
+
+          <button
+            class="mr-2"
+            type="button"
+            mat-raised-button
+            color="warn"
+            (click)="onRestForm()"
+          >
+            Clear
+            <mat-icon>clear</mat-icon>
+          </button>
+          <button
+            type="submit"
+            mat-raised-button
+            color="primary"
+            [disabled]="profileEditForm.invalid"
+          >
+            Edit
+            <mat-icon>edit</mat-icon>
+          </button>
+
+      </form>
+    </mat-card>
+  </div>
+  <div class="edit-profile-bg"></div>
+</div>

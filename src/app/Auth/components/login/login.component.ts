@@ -1,4 +1,3 @@
-import { Placeholder } from '@angular/compiler/src/i18n/i18n_ast';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { FormlyFieldConfig } from '@ngx-formly/core';
@@ -13,21 +12,19 @@ export class LoginComponent implements OnInit {
   profileForm = new FormGroup({
     value: new FormControl(''),
   });
-  redemptionOfYearsFormConfig: FormlyFieldConfig[];
-  redemptionOfYearsForm = new FormGroup({});
-  redemptionOfYearsFormModel: any = {};
+  loginFormConfig: FormlyFieldConfig[];
+  loginForm = new FormGroup({});
+  loginFormModel: any = {};
   onSubmit() {
-    
-    
-    
+    this.authSrv.login(this.loginFormModel);
   }
-   constructor(private authSrv:AuthService) {}
+  constructor(private authSrv: AuthService) {}
 
   ngOnInit(): void {
     this.redemptionOfYearsinitForm();
   }
   redemptionOfYearsinitForm() {
-    this.redemptionOfYearsFormConfig = [
+    this.loginFormConfig = [
       {
         fieldGroupClassName: 'flex-container',
         fieldGroup: [
