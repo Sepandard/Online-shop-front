@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AdminLayoutComponent } from './components/admin-layout/admin-layout.component';
 import { RouterModule } from '@angular/router';
@@ -26,7 +26,11 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyMaterialModule } from '@ngx-formly/material';
 import {MatInputModule} from '@angular/material/input';
-
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { NgxSpinnerModule } from "ngx-spinner";
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { AdminService } from './shared/admin.service';
+import { BaseService } from 'shared/base-service.service';
 @NgModule({
   declarations: [
     AdminLayoutComponent,
@@ -55,9 +59,23 @@ import {MatInputModule} from '@angular/material/input';
     MatDialogModule,
     MatSnackBarModule,
     MatTabsModule,
-    FormlyModule,
+    FormlyModule.forRoot({
+      validationMessages: [
+        { name: 'required', message: 'This field is required' },
+        {
+          name: 'minlength',
+          message: 'your password must be more than 8 char',
+        },
+      ],
+    }),
     FormlyMaterialModule,
-    MatInputModule
+    MatInputModule,
+    MatProgressSpinnerModule,
+    NgxSpinnerModule,
+    MatProgressBarModule, 
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  providers : [BaseService,AdminService],
+
 })
 export class AdminModule {}
