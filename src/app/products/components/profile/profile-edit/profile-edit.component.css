@@ -1,0 +1,22 @@
+.mt-6 {
+  margin-top: 5rem;
+}
+::ng-deep .mat-radio-inner-circle {
+  background-color: #007bff !important;
+}
+::ng-deep .mat-radio-outer-circle {
+  border-color: #007bff !important;
+}
+.edit-profile-bg {
+  height: 30vh;
+  background: url("../../../../images/undraw_in_thought_gjsf.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+/* .wrapper {
+    display: grid;
+    grid-template-columns: 60% auto;
+    grid-template-rows: auto;
+} */
