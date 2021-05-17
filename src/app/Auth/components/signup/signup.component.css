@@ -7,14 +7,14 @@
 
 .login-card {
   flex: 1;
-  background-color: #0072b5;
+ background-color: rgba(0,0,0,0.8);;
   clip-path: ellipse(92% 78% at 21% 30%);
 }
 
 .bg-img {
   height: 100vh;
   flex: 1;
-  background-image: url("../../../images/undraw_completing_6bhr.svg");
+  background-image: url("../../../images/undraw_functions_egi3.svg");
   background-size: cover;
   background-position: center;
   object-fit: cover;
@@ -22,7 +22,7 @@
   height: 70%;
   width: 50%;
 
-  margin-top: auto;
+ 
   margin-right: 10px;
   margin-bottom: 40px;
 }
