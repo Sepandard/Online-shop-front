@@ -11,7 +11,10 @@ import { Product } from 'src/models/products';
 export class ProductsService {
   CategoryItem: CategoryMenu;
   Product: Product;
-  constructor(private baseSrv: BaseService, private snackbar: MatSnackBar) {}
+  private temp$: BehaviorSubject<any>;
+  constructor(private baseSrv: BaseService, private snackbar: MatSnackBar) {
+  this.temp$ = new BehaviorSubject<any>([]);
+  }
   Products$: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
   public get Products(): Observable<any[]> {
     return this.Products$.asObservable();
@@ -19,6 +22,13 @@ export class ProductsService {
   CategoryMenu$: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
   public get CategoryMenu(): Observable<any[]> {
     return this.CategoryMenu$.asObservable();
+  }
+  public get getDate(): Observable<any> {
+    return this.temp$.asObservable();
+  }
+
+  public set setData(data: any) {
+    this.temp$.next(data);
   }
   getcategory(model?: String) {
     return this.baseSrv.getReq('product/searchProductCategory', model);
@@ -38,7 +48,7 @@ export class ProductsService {
     });
     return CategoryArr;
   }
-  getProducts(productname?) {
+   getProducts(productname?) {
     let productArr: any[] = [];
     this.baseSrv
       .getReq('product/searchProduct', 'productname', productname)
@@ -46,11 +56,11 @@ export class ProductsService {
         res.data[0].products.forEach((element) => {
           let product = new Product(element);
           productArr.push(product);
-        });
+        });  
       });
+      return productArr
   }
   getPersonal(model) {
-    let PersonalData;
     return this.baseSrv.getReq('auth/personal', 'user_id', model);
   }
   putPersonal(model: any) {
@@ -69,78 +79,4 @@ export class ProductsService {
     });
   }
 
-  fakeData = [
-    {
-      prodcutId: 1,
-      productName: 'ssss',
-      descriptionProduct: 'sasadasd',
-      ProductImageUrl:
-        'https://material.angular.io/assets/img/examples/shiba1.jpg',
-      priceProduct: 2000,
-      categoryProduct: 'asdasd',
-    },
-    {
-      prodcutId: 1,
-      productName: 'ssss',
-      descriptionProduct: 'sasadasd',
-      ProductImageUrl:
-        'https://material.angular.io/assets/img/examples/shiba1.jpg',
-      priceProduct: 2000,
-      categoryProduct: 'asdasd',
-    },
-    {
-      prodcutId: 1,
-      productName: 'ssss',
-      descriptionProduct: 'sasadasd',
-      ProductImageUrl:
-        'https://material.angular.io/assets/img/examples/shiba1.jpg',
-      priceProduct: 2000,
-      categoryProduct: 'asdasd',
-    },
-    {
-      prodcutId: 1,
-      productName: 'ssss',
-      descriptionProduct: 'sasadasd',
-      ProductImageUrl:
-        'https://material.angular.io/assets/img/examples/shiba1.jpg',
-      priceProduct: 2000,
-      categoryProduct: 'asdasd',
-    },
-    {
-      prodcutId: 1,
-      productName: 'ssss',
-      descriptionProduct: 'sasadasd',
-      ProductImageUrl:
-        'https://material.angular.io/assets/img/examples/shiba1.jpg',
-      priceProduct: 2000,
-      categoryProduct: 'asdasd',
-    },
-    {
-      prodcutId: 1,
-      productName: 'ssss',
-      descriptionProduct: 'sasadasd',
-      ProductImageUrl:
-        'https://material.angular.io/assets/img/examples/shiba1.jpg',
-      priceProduct: 2000,
-      categoryProduct: 'asdasd',
-    },
-    {
-      prodcutId: 1,
-      productName: 'ssss',
-      descriptionProduct: 'sasadasd',
-      ProductImageUrl:
-        'https://material.angular.io/assets/img/examples/shiba1.jpg',
-      priceProduct: 2000,
-      categoryProduct: 'asdasd',
-    },
-    {
-      prodcutId: 1,
-      productName: 'ssss',
-      descriptionProduct: 'sasadasd',
-      ProductImageUrl:
-        'https://material.angular.io/assets/img/examples/shiba1.jpg',
-      priceProduct: 2000,
-      categoryProduct: 'asdasd',
-    },
-  ];
-}
+ }
